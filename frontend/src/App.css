@@ -1,0 +1,146 @@
+/* App.css */
+
+/* Import a futuristic, tech-looking font */
+@import url('https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap');
+
+/* Global Mocap Tracking Environment */
+body {
+  margin: 0;
+  padding: 0;
+  background-color: #0b0c10;
+  /* Creates a subtle 3D tracking grid in the background */
+  background-image: 
+    linear-gradient(rgba(102, 252, 241, 0.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(102, 252, 241, 0.05) 1px, transparent 1px);
+  background-size: 40px 40px;
+  color: #c5c6c7;
+  font-family: 'Share Tech Mono', monospace;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+
+/* Main Interface Panel */
+.container {
+  background: rgba(11, 12, 16, 0.85);
+  border: 1px solid #45a29e;
+  border-radius: 8px;
+  padding: 40px;
+  width: 90%;
+  max-width: 700px;
+  box-shadow: 0 0 30px rgba(69, 162, 158, 0.15);
+  backdrop-filter: blur(10px);
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+/* Glowing Headers */
+h1 {
+  color: #66fcf1;
+  text-transform: uppercase;
+  letter-spacing: 4px;
+  text-shadow: 0 0 15px rgba(102, 252, 241, 0.6);
+  margin: 0 0 10px 0;
+  text-align: center;
+  font-size: 2.5rem;
+}
+
+/* Input Area (The Console) */
+textarea {
+  background: #1f2833;
+  color: #66fcf1;
+  border: 1px solid #45a29e;
+  border-radius: 4px;
+  padding: 15px;
+  font-family: 'Share Tech Mono', monospace;
+  font-size: 16px;
+  resize: vertical;
+  outline: none;
+  transition: all 0.3s ease;
+  box-shadow: inset 0 0 15px rgba(0, 0, 0, 0.8);
+}
+
+textarea::placeholder {
+  color: #45a29e;
+  opacity: 0.5;
+}
+
+/* Active Tracking State */
+textarea:focus {
+  border-color: #66fcf1;
+  box-shadow: 0 0 20px rgba(102, 252, 241, 0.3), inset 0 0 10px rgba(0, 0, 0, 0.8);
+}
+
+/* Mocap Action Button */
+button {
+  background: transparent;
+  color: #66fcf1;
+  border: 2px solid #66fcf1;
+  padding: 15px 20px;
+  font-size: 18px;
+  font-family: 'Share Tech Mono', monospace;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  cursor: pointer;
+  border-radius: 4px;
+  transition: all 0.2s ease-in-out;
+  position: relative;
+}
+
+button:hover {
+  background: #66fcf1;
+  color: #0b0c10;
+  box-shadow: 0 0 25px rgba(102, 252, 241, 0.8);
+  transform: translateY(-2px);
+}
+
+button:active {
+  transform: translateY(1px);
+  box-shadow: 0 0 10px rgba(102, 252, 241, 0.8);
+}
+
+/* AI Telemetry Output */
+.response-box {
+  margin-top: 15px;
+  background: rgba(31, 40, 51, 0.7);
+  border-left: 5px solid #66fcf1;
+  padding: 25px;
+  border-radius: 0 6px 6px 0;
+  min-height: 120px;
+  box-shadow: inset 0 0 20px rgba(0, 0, 0, 0.5);
+  position: relative;
+}
+
+/* Adding a blinking cursor effect to the AI header */
+.response-box h2 {
+  font-size: 1.1rem;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  margin-top: 0;
+  margin-bottom: 15px;
+  color: #45a29e;
+  display: inline-block;
+}
+
+.response-box h2::after {
+  content: '█';
+  margin-left: 8px;
+  color: #66fcf1;
+  animation: blink 1s infinite;
+}
+
+.response-box p {
+  margin: 0;
+  line-height: 1.6;
+  color: #e0e6ed;
+  white-space: pre-wrap;
+  font-size: 16px;
+}
+
+/* Animations */
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
